@@ -5,12 +5,13 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useCallback } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 Link
-const chatref = useRef(null)
+
 const url = "https://coconaadu-backend.onrender.com";
 // this connects to the backend serv
 const socket = io(url);
 
 function Chat() {
+  const chatref = useRef(null)
 
   const location = useLocation()
 
@@ -81,10 +82,11 @@ function Chat() {
       setusername(user.username);
     }
   }, []);
-
+useEffect(()=>{
   if(chatref.current){
-    chatref.current.scrollIntoView({behaviour : 'smooth'})
+    chatref.current.scrollIntoView({behavior : 'smooth'})
   }
+},[messages])
   return (
     <>
       <div className="flex flex-col h-screen ">
