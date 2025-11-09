@@ -64,73 +64,41 @@ function Users() {
 
 
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg   !bg-white">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg !bg-white">
+  {userdetails?.length > 0 ? (
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 !bg-white">
-        <thead class="text-xs text-gray-700 uppercase !bg-gray-100  dark:text-gray-400">
-            <tr className=''>
-               
-                <th scope="col" class="px-6 py-4">
-                    Name
-                </th>
-                <th scope="col" class="px-6 py-4">
-                    Email
-                </th>
-                 <th scope="col" class="px-6 py-4">
-                    REGISTERED
-                </th>
-               
-              
-               
-            </tr>
-        </thead>
-        <tbody>
-           
-
-            
-            {
-
-                userdetails?.length>0 ? userdetails.map((item,index)=>{
-                    return (
-
-                           <tr class="!bg-white border-b border-gray-300  hover:bg-gray-700    ">
-                
-                <td class="px-6 py-3 text-gray-500 font-semibold flex items-center gap-4">
-
-                  <img src={item?.profile === "" ? "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg":`${serverurl}/eventimagepath/${item.profile}`} className='rounded-full object-cover' style={{height:'40px' , width:'40px'}} alt="" />
-
-
-                    {item?.username}
-                </td>
-                <td class="px-6 py-3 text-gray-500 font-semibold">
-                    {item?.email}
-                </td>
-                <td class="px-6 py-3 text-gray-500 font-semibold">
-                    {item?.registered}
-                </td>
-            
-               
-               
-            </tr>
-
-                    )
-                }) : <>nothing</>
-            }
-            
-          
-             
-             
-             
-            
-
-           
-
-            
-             
-
-           
-           
-        </tbody>
+      <thead class="text-xs text-gray-700 uppercase !bg-gray-100 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-4">Name</th>
+          <th scope="col" class="px-6 py-4">Email</th>
+          <th scope="col" class="px-6 py-4">REGISTERED</th>
+        </tr>
+      </thead>
+      <tbody>
+        {userdetails.map((item, index) => (
+          <tr key={index} class="!bg-white border-b border-gray-300 hover:bg-gray-700">
+            <td class="px-6 py-3 text-gray-500 font-semibold flex items-center gap-4">
+              <img
+                src={
+                  item?.profile === ""
+                    ? "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg"
+                    : `${serverurl}/eventimagepath/${item.profile}`
+                }
+                className="rounded-full object-cover"
+                style={{ height: "40px", width: "40px" }}
+                alt=""
+              />
+              {item?.username}
+            </td>
+            <td class="px-6 py-3 text-gray-500 font-semibold">{item?.email}</td>
+            <td class="px-6 py-3 text-gray-500 font-semibold">{item?.registered}</td>
+          </tr>
+        ))}
+      </tbody>
     </table>
+  ) : (
+    <div className="text-center py-6 text-gray-500 font-semibold">nothing</div>
+  )}
 </div>
 
  
