@@ -105,7 +105,7 @@ useEffect(()=>{
 
   return (
     <>
-      <div className="grid-cols-2 flex w-full h-screen">
+      <div className="grid-cols-2 flex w-full ">
         <div
           className='w-[50%]'
           key={specificevent?._id}
@@ -120,7 +120,7 @@ useEffect(()=>{
             </div>
           </Link>
         </div>
-        <div className="w-[50%] p-10 flex flex-col">
+        <div className="w-[50%] p-10 flex flex-col overflow-y-auto">
           <h2 className="text-3xl font-semibold mb-6 flex items-center  text-gray-800">
             {specificevent?.title}
             <span className="px-6 py-2 text-white bg-blue-400/80 text-sm ml-5 rounded">
